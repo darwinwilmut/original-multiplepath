@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: second-app
+  template:
+    metadata: 
+      labels:
+        app: second-app
+    spec: 
+      containers:
+        - name: second-container
+          image: darwinwilmut/secondapp:latest
+          ports:
+            - containerPort: 8080
